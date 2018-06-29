@@ -10,9 +10,11 @@ layer {
   type: "Convolution"
   bottom: "data"
   top: "conv1"
+# learning rate for the filters
   param {
     lr_mult: 1
   }
+# learning rate for the biases
   param {
     lr_mult: 2
   }
@@ -37,6 +39,7 @@ layer {
     pool: MAX
     kernel_size: 2
     stride: 2
+#중복 없이 풀링 위해 스트라이드 2
   }
 }
 layer {
