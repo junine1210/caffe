@@ -48,7 +48,7 @@ Using the files that were downloaded, we can classify the provided cat
 image (`examples/images/cat.jpg`) using this command:
 ```
 예제
-./build/examples/cpp_classification/classification.bin \
+./build/examples/cpp_classification/classification_origin.bin \
   models/bvlc_reference_caffenet/deploy.prototxt \
   models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel \
   data/ilsvrc12/imagenet_mean.binaryproto \
@@ -60,7 +60,7 @@ image (`examples/images/cat.jpg`) using this command:
   examples/mnist/lenet.prototxt \
   examples/mnist/lenet_iter_10000.caffemodel \
   examples/mnist/label.txt \
-  examples/mnist/seven.png
+  examples/mnist/seven_2.png
 
 설명
 ./build/examples/cpp_classification/classification.bin \
