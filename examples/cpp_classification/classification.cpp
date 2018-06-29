@@ -261,6 +261,7 @@ int main(int argc, char** argv) {
   }
 }
 #else
+//argc 변수가 몇개 들어갔냐, argv는 입력받을 데이터
 int main(int argc, char** argv) {
   LOG(FATAL) << "This example requires OpenCV; compile with USE_OPENCV.";
 }
