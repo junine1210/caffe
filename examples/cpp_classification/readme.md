@@ -47,13 +47,39 @@ required in order to map a prediction to the name of the class:
 Using the files that were downloaded, we can classify the provided cat
 image (`examples/images/cat.jpg`) using this command:
 ```
+예제
 ./build/examples/cpp_classification/classification.bin \
   models/bvlc_reference_caffenet/deploy.prototxt \
   models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel \
   data/ilsvrc12/imagenet_mean.binaryproto \
   data/ilsvrc12/synset_words.txt \
   examples/images/cat.jpg
-```
+
+내꺼(하기전에 메이크 다시 해야함)
+./build/examples/cpp_classification/classification_mnist.bin \
+  examples/mnist/lenet.prototxt \
+  examples/mnist/lenet_iter_10000.caffemodel \
+  examples/mnist/label.txt \
+  examples/mnist/seven.png
+
+설명
+./build/examples/cpp_classification/classification.bin \
+  models/bvlc_reference_caffenet/deploy.prototxt \네트워크 레이어에 대한 정보(카페넷에 대한 정보)가 들어있음
+  models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel \이미 누군가 돌려서 나온 데이터 결과값
+  data/ilsvrc12/imagenet_mean.binaryproto
+\중간 값을 뺌(이미지 전처리) 데이터들의 차이에 집중하기 위해 / 이건 숫자예제 할떄는 지워야 함
+데이터 1000개 처리 - 데이터를 각각 보는것/ ex 파란 빛 밑에서 사진 을 찎었으면 그 사진은 전체적으로 파란색이 많이 포함
+구별은 차이를 구하는 것이므로 같은 파란색이 모두 포함돼있으면 의미 없는 값이므로 없에버리는게 좋음
+이런 걸 방지하기 위해 모든 값의 평균값을 구해 민감도를 낮춘다.
+일반적으로 학습시에 중간 값을 뺴는데, 엠니스트는 중간값을 뺴지 않는 모델이라 
+모든 데이터의 평균값을 뺌
+
+  data/ilsvrc12/synset_words.txt \나온 결과를 말로 어떻게 설명할껀
+  examples/images/cat.jpg
+
+
+``
+
 The output should look like this:
 ```
 ---------- Prediction for examples/images/cat.jpg ----------
