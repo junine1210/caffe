@@ -74,6 +74,8 @@ std::vector<float> Classifier::Predict(const cv::Mat& img) {
     WrapInputLayer(&input_channels);
     Preprocess(img, &input_channels); //convert img to caffe input
 
+    net_->Forward();//기본 classification.cpp에 있는 위치에 추가해봄
+
     /* Copy the output layer to std::vector */
     shared_ptr< Blob<float> > output_layer = net_-> blob_by_name("fc8");
     const float* begin = output_layer->cpu_data();

@@ -63,12 +63,18 @@ image (`examples/images/cat.jpg`) using this command:
   examples/mnist/7.png
 
 vgg 이미지
-./build/examples/cpp_classification/classification_vggface_1.bin \
+./build/examples/cpp_classification/classification_vggface_down.bin \
   vgg_face_caffe/VGG_FACE_deploy.prototxt \
   vgg_face_caffe/VGG_FACE.caffemodel \
   vgg_face_caffe/names.txt \
   vgg_face_caffe/1.jpg
 
+friend 이미지
+./build/examples/cpp_classification/classification_vggface_friend.bin \
+  vgg_face_caffe/VGG_FACE_deploy.prototxt \
+  vgg_face_caffe/VGG_FACE.caffemodel \
+  vgg_face_caffe/study/ \
+  vgg_face_caffe/n.jpg
 
 
 설명
