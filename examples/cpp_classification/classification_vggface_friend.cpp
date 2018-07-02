@@ -74,7 +74,7 @@ std::vector<float> Classifier::Predict(const cv::Mat& img) {
     WrapInputLayer(&input_channels);
     Preprocess(img, &input_channels); //convert img to caffe input
 
-    net_->Forward();//기본 classification.cpp에 있는 위치에 추가해봄
+    net_->Forward();//기본 classification.cpp에 있는 위치에 추가해봄->동
 
     /* Copy the output layer to std::vector */
     shared_ptr< Blob<float> > output_layer = net_-> blob_by_name("fc8");
@@ -109,7 +109,7 @@ void Classifier::Preprocess(const cv::Mat& img, std::vector<cv::Mat>* input_chan
         sample_resized.convertTo(sample_float, CV_32FC1);
 
     cv::Mat sample_normalized;
-    cv::Mat avgimg(img.rows, img.cols, CV_32FC3, cv::Scalar(93.5940,104.7624,129.1863));
+    cv::Mat avgimg( input_geometry_, CV_32FC3, cv::Scalar(93.5940,104.7624,129.1863));
     cv::subtract(sample_float, avgimg, sample_normalized);
 
     /* This operation will write the separate BGR planes directly to the
@@ -156,14 +156,15 @@ int main(int argc, char** argv) {
 
     // load target image
     cv::Mat target_image = cv::imread(targetname, -1);
-    cv::Mat target_float;
-    target_image.convertTo(target_float, CV_32FC3);
+//    cv::Mat target_float;
+//    target_image.convertTo(target_float, CV_32FC3);
 
-    cv::Mat target_normalized;
-    cv::Mat avgimg(target_image.rows, target_image.cols, CV_32FC3, cv::Scalar(93.5940,104.7624,129.1863));
-    cv::subtract(target_float, avgimg, target_normalized);
+//    cv::Mat target_normalized;
+//    cv::Mat avgimg(target_image.rows, target_image.cols, CV_32FC3, cv::Scalar(93.5940,104.7624,129.1863));
+//    cv::subtract(target_float, avgimg, target_normalized);
+//강사님이 수정해주신 부분
 
-    std::vector<float> target_output = classifier.Predict(target_normalized);
+    std::vector<float> target_output = classifier.Predict(target_image);
 
     // Feature Extraction for target file
 
