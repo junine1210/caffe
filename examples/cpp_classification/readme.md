@@ -60,7 +60,16 @@ image (`examples/images/cat.jpg`) using this command:
   examples/mnist/lenet.prototxt \
   examples/mnist/lenet_iter_10000.caffemodel \
   examples/mnist/label.txt \
-  examples/mnist/seven_2.png
+  examples/mnist/7.png
+
+vgg 이미지
+./build/examples/cpp_classification/classification_vggface_1.bin \
+  vgg_face_caffe/VGG_FACE_deploy.prototxt \
+  vgg_face_caffe/VGG_FACE.caffemodel \
+  vgg_face_caffe/names.txt \
+  vgg_face_caffe/1.jpg
+
+
 
 설명
 ./build/examples/cpp_classification/classification.bin \
